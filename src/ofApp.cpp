@@ -7,8 +7,8 @@ jewel.load("diamond.png");// image to use (must be stored in "random/bin/data" f
 
 std::random_device rd;
 std::mt19937 gen(rd());
-std::uniform_int_distribution <> disx (0,1200);
-std::uniform_int_distribution <> disy (0,970);
+std::normal_distribution <float> disx (1000,15);
+std::normal_distribution <float> disy (800,15);
 
 for(int x=0;x<20;x++){
 	X.push_back(disx(gen));
@@ -28,7 +28,7 @@ ofBackground(0);
 
 for(auto i = 0u; i < X.size(); i++)
  {
-   jewel.draw(X[i], Y[i]);
+   jewel.draw((int)X[i],(int) Y[i]);
  }
 }
 
